@@ -1,3 +1,6 @@
+### uSe  LAarvel ##############
+
+
 use Illuminate\Support\Facades\Http;
 
 
@@ -9,3 +12,47 @@ use Illuminate\Support\Facades\Http;
       
        dd($jsonData);
     }
+    
+    
+    
+    
+    
+    
+    use script################################
+    
+    <script>
+fetch("https://trucks24.in/api/load/v.ry.01/load_market").then(
+  res => {
+    res.json().then(
+      data => {
+        console.log(data.data);
+        if (data.data.length > 0) {
+
+          var temp = "";
+          data.data.forEach((itemData) => {
+            temp += "<tr>";
+            temp += "<td>" + itemData.id + "</td>";
+            temp += "<td>" + itemData.location1 + "</td>";
+            temp += "<td>" + itemData.created_at + "</td></tr>";
+          });
+          document.getElementById('data').innerHTML = temp;
+        }
+      }
+    )
+  }
+)
+</script>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Employee Name</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody id="data">
+
+    </tbody>
+  </table>
+</div>
