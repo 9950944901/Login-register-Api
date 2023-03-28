@@ -1,0 +1,11 @@
+use Illuminate\Support\Facades\Http;
+
+
+ public function index()
+    {
+        $response = Http::get('https://trucks24.in/api/load/v.ry.01/load_market');
+    
+       $jsonData = $response->json();
+      
+       dd($jsonData);
+    }
